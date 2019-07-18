@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>THERAPY.COM</title>
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="css/therapy.css" />
+</head>
+
+<body>
+  <!--side nav-->
+  <section id="sidenav">
+    <a id="closebtn" href="#" onclick="closeSideNav()">x</a>
+    <a href="/">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Appointment</a>
+    <a href="#">About</a>
+    <a href="#" onclick="openContacts()">Contact Us</a>
+    <section id="contacts">
+      <a href="#">Facebook</a>
+      <a href="#">Skype</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">Email</a>
+    </section>
+    <a href="#" onclick="openModal()">Login</a>
+  </section>
+  <section id="main">
+    <!--Nav bar-->
+    <section class="nav">
+      <ul>
+        <li><a href="#" onclick="openSideNav()">Menu</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Therapy</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="#" onclick="openModal()">Login</a></li>
+      </ul>
+    </section>
+    <h1 id="Therapy">Therapy.com</h1>
+    <!--Modal Login-->
+    <section id="login_modal">
+      <section id="modalform">
+        <form action="actionpage.php" method="GET" autocomplete="on">
+          <label><b>USERNAME:</b></label><br>
+          <input name="username" type="text" placeholder="Enter username" required /><br />
+          <label><b>PASSWORD:</b></label><br>
+          <input name="psw" type="password" placeholder="Enter password" required /><br />
+          <button name="submit" type="Submit">Login</button>
+          <br>
+          <label>
+            <input type="checkbox" name="rmba" value="Remember" checked />Remember me
+          </label>
+          <button id="cancelbtn" onclick="closeModal()">Cancel</button>
+          <span class="rmba"><a href="#">Forgot password?</a></span>
+        </form>
+      </section>
+    </section>
+    <!--Registration form-->
+    <form id="reg_form">
+      <p>Fields with <span style="color: red">*</span> are required</p>
+      <label id="req">* First name:<input type="text" required /></label>
+      <label class="req">* Last name:<input type="text" required /></label>
+      <label>Middle name:<input type="text" /></label>
+      <label class="req">* Gender:</label>
+      <input type="radio" name="gender" value="male" />Male
+      <input type="radio" name="gender" value="female" />Female
+      <input type="radio" name="gender" value="other" />Other<br>
+      <label class="req">* DOB:<input type="date" min="2005-01-01" required /></label>
+      <label class="req">* Nationality:<input required /></label>
+      <label class="req">* Email address:<input type="email" required /></label>
+      <label class="req">* Username:<input type="text" required /></label>
+      <label class="req">* Password:<input type="password" required /></label>
+      <label class="req">*Confirm Password:<input type="password" required /></label>
+      <label>Phone no:<input type="tel" /></label>
+      <label>Relationship status:<input /></label>
+      <label>Religion:<input /></label>
+      <label><input type="checkbox" value="terms_agreement" checked />
+        I have read and accept the terms and conditions of use</label>
+      <button type="submit" name="regSubmit">Submit</button>
+      <button name="cancelreg">Cancel</button>
+    </form>
+    <script src="js/therapy.js"></script>
+</body>
+<footer>
+  <span>Copyrights MattHolmes 2018</span>
+</footer>
+
+</html>

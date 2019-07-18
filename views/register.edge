@@ -1,0 +1,58 @@
+@layout('layouts.app')
+
+@section('content')
+
+<!--Registration form-->
+<div class="regform">
+    <form action="/users/register" method="POST">
+        <label for="firstname" class="reglabel">First name</label>
+        <input name="firstname" type="text" value="{{ data.firstname || '' }}" placeholder="First Name" class="reginput"  autofocus required>
+
+        <label class="reglabel">Last name</label>
+        <input name="lastname" type="text" value="{{ data.lastname || ''}}" placeholder="Last Name" class="reginput" required>
+
+        <label class="reglabel">Middle Name</label>
+        <input name="middlename" type="text" placeholder="Middle Name" class="reginput"><br><br>
+
+        <input type="radio" name="Gender" value="male" class="gender" checked required>Male<br><br>
+        <input type="radio" name="Gender" value="female" class="gender" required>Female<br>
+
+        <label class="reglabel">Username</label>
+        <input name="username" type="text" placeholder="Username" class="reginput" required>
+
+        <label class="reglabel">Email</label>
+        <input name="Email" type="text" placeholder="Email" class="reginput" required>
+
+        <label class="reglabel">Password</label>
+        <input name="password" type="password" placeholder="Enter Password" minlength="8" class="reginput" id="pass1" required>
+
+        <label class="reglabel">Confirm Password</label>
+        <input type="password" title="Please type in password again" placeholder="Confirm Password" class="reginput" id="pass2" onblur="matchpass()">
+
+        <label class="reglabel">Phone Number</label>
+        <input name="Phone_no" type="tel" placeholder="Phone Number" class="reginput" required>
+
+        <label class="reglabel">DOB</label>
+        <input name="DOB" type="date" class="reginput" required>
+
+        <label class="reglabel">Nationality</label>
+        <input name="Nationality" list="nationality" type="text" placeholder="Nationality" class="reginput">
+        <datalist id="nationality">
+            <option value="Argentina">
+            <option value="Benin Republic">
+            <option value="Cameroon">
+            <option value="Columbia">
+            <option value="Kenya">
+            <option value="Nigeria">
+            <option value="USA">
+        </datalist>
+
+        <label class="reglabel">Terms and Agreements</label>
+        <input type="checkbox" name="terms" value="Accepted" checked required>I have read and agreed to all the terms and conditions of use
+
+        <button type="submit" name="regbtn" id="regsubmit">Register Now</button>
+        <a href="/"><button type="button">Cancel</button></a>
+    </form>
+</div>
+
+@endsection

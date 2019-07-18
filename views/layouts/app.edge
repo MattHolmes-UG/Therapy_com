@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>THERAPY.COM</title>
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/therapy.css" />
+</head>
+
+<body>
+    <!--side nav-->
+    <section id="sidenav">
+        <a id="closebtn" href="#" onclick="closeSideNav()">x</a>
+        <a href="/">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Appointment</a>
+        <a href="/about">About</a>
+        <a href="#" onclick="openContacts()">Contact Us</a>
+        <section id="contacts">
+            <a href="#">Facebook</a>
+            <a href="#">Skype</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Email</a>
+        </section>
+        @if(!auth)
+            <a href="/user/login">Login</a>
+        @else
+            <a href="/auth/logout">Logout</a>
+        @endif
+    </section>
+
+    <section id="main">
+
+        <!--Nav bar-->
+        <section class="nav">
+            <ul>
+                <li><a href="#" onclick="openSideNav()">Menu</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Therapy</a></li>
+                <li><a href="#">Services</a></li>
+                @if(!auth)
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/user/login">Login</a></li>
+                @else
+                    <li><a href="/auth/profile">Profile</a></li>
+                @endif
+
+            </ul>
+        </section>
+        <h1 id="Therapy">Therapy.com</h1>
+
+        <!--Modal Login-->
+        <section id="login_modal">
+            <section id="modalform">
+                <form action="/user/login" method="POST" autocomplete="on">
+                    <label><b>USERNAME:</b></label><br>
+                    <input name="username" type="text" placeholder="Enter username" required /><br />
+                    <label><b>PASSWORD:</b></label><br>
+                    <input name="password" type="password" placeholder="Enter password" required /><br />
+                    <button name="submit" type="Submit">Login</button>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="rmba" value="Remember" checked />Remember me
+                    </label>
+                    <button id="cancelbtn" onclick="closeModal()">Cancel</button>
+                    <span class="rmba"><a href="#">Forgot password?</a></span>
+                </form>
+            </section>
+        </section>
+        
+        @!section('content')
+        
+    </section>
+
+    <footer>
+        <span>Copyrights MattHolmes 2018</span>
+    </footer>
+    <script src="/js/socket.js"></script>
+    <script src="/js/therapy.js"></script>
+    <script src="/js/chat.js"></script>
+    <script src="/js/jquery3.4.1.js"></script>
+</body>
+
+</html>

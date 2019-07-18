@@ -1,0 +1,501 @@
+* {
+  box-sizing: border-box; 
+} 
+html {
+    background: url("./../pics/2002278.jpg") no-repeat center fixed; 
+    background-color: #424242;
+    background-size: cover; 
+}
+body { 
+  font-size: 100%;
+}
+#main {
+  overflow: hidden; 
+  transition: margin-left 0.25s ease-in;
+}
+#sidenav {
+  background-color: #101010;
+  height: 100%;
+  width: 0px;
+  overflow-x: hidden; 
+  z-index: 2;
+  padding-top: 10px;
+  transition: width 0.3s ease-in;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+}
+
+#sidenav a {
+  display: block; 
+  text-decoration: none; 
+  text-align: left;   
+  font-size: 1.25em;
+  font-family: serif; 
+  color: white;  
+  padding: 20px 20px 10px 40px;
+  border-radius: 6px; 
+  transition: background-color 0.3s ease-in;
+}
+
+#sidenav a:hover, a:active {
+  background-color: hsl(240, 90%, 70%); 
+  color: rgb(250,250,250); 
+}
+
+#sidenav #closebtn { 
+  font-size: 2.1875em;
+  margin-left: 72%; 
+  position: relative;
+}
+#contacts {
+  display: none; 
+  background-color: rgba(255,255,255, 0.8);
+  margin: 0px 10px 10px 10px; 
+  padding: 8px; 
+  -webkit-animation: contactzoom 0.3s;
+  animation: contactzoom 0.3s;
+}
+@-webkit-keyframes contactzoom {
+  from {-webkit-transform: scale(0);}
+  to {-webkit-transform: scale(1);}
+}
+@keyframes contactzoom {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+#contacts a {
+  font-size: 0.9em;
+  color: blue; 
+  margin: -5px auto; 
+}
+@media screen and (max-height: 450px) {
+  #sidenav a {font-size: 18px;}
+}
+.nav {
+  display: block; 
+  position: fixed; 
+  width: 100%; 
+  top: -4px;
+  margin: auto; 
+  z-index: 1;
+}
+
+.nav ul {
+  list-style-type: none; 
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(90deg,
+  rgba(255, 255, 255, 0.2) 0%, 
+    rgba(255, 255, 255, 0.6) 25%, 
+    rgba(255, 255, 255, 0.4) 75%, 
+    rgba(255, 255, 255, 0.2) 100%);
+  padding: 1px; 
+  overflow: auto; 
+}
+.nav ul li {
+  float: left ;  
+}
+
+.nav ul li a {
+  text-decoration: none; 
+  text-align: center; 
+  font-size: 0.899em; 
+  font-variant: small-caps;  
+  font-weight: bold;
+  display: block; 
+  color: rgb(10,10,60);
+  margin: auto; 
+  padding: 2px 6px 2px 4px; 
+  font-family: serif; 
+  height: 28px;
+  border-radius: 4px;  
+  transition: background-color 0.3s linear, font-weight 0.3s linear; 
+}
+.nav ul li a:hover {
+  color: black;
+  font-weight: bold; 
+  background-color: rgba(255,255,255, 0.7)
+}
+#Therapy {
+  position: relative;
+  top: 10px; 
+  color: rgb(10,10,60); 
+  background: linear-gradient(90deg, 
+  rgba(255,255,255, 0.2) 0%,
+  rgba(255,255,255, 0.6) 25%,
+  rgba(255,255,255, 0.8) 75%,
+  rgba(255,255,255, 0.4) 100%); 
+  font-size: 2em; 
+  font-family: serif; 
+  font-variant: small-caps;
+  text-align: right; 
+  width: 100%;
+  padding: 6px;
+  overflow: none;
+  cursor: pointer;
+}
+#username {
+  position: relative;
+  top: 10px; 
+  color: rgb(10,10,60); 
+  background: linear-gradient(90deg, 
+  rgba(255,255,255, 0.2) 0%,
+  rgba(255,255,255, 0.6) 25%,
+  rgba(255,255,255, 0.8) 75%,
+  rgba(255,255,255, 0.4) 100%); 
+  font-size: 2em; 
+  font-family: serif; 
+  font-variant: small-caps;
+  text-align: left; 
+  width: 100%;
+  padding: 6px;
+  overflow: none;
+  cursor: pointer;
+}
+/* to hide scrollbar without losing the effects*/
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(156, 156, 156);
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 10px;
+  background-color: rgb(94, 94, 94);
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgb(231, 230, 230);
+}
+#slideshow_container {
+  position: relative; 
+  top: -12px; 
+  max-width: 100%;
+  opacity: 0.95;
+}
+@media screen and (min-width: 380px) {
+  .nav ul {height: 40px;}
+  .nav ul li a {font-size: 1.3em;
+  				  padding: auto;
+  				  height: 38px; }
+  #Therapy {top: 20px; }
+  #slideshow_container {top: -2px;}
+}
+#prevbtn, #nextbtn {
+  position: absolute; 
+  top: 50%;
+  margin-top: -30px;
+  width:auto; 
+  cursor: pointer; 
+  font-size: 1.245em; 
+  font-weight: bold; 
+  color: white; 
+  padding: 12px; 
+  border-radius: 3px 0px 0px 3px; 
+  user-select: none; 
+  -webkit-user-select: none; 
+}
+#nextbtn {
+  right: 0;
+  border-radius: 0px 3px 3px 0px; 
+}
+#prevbtn:hover, #nextbtn:hover {
+  background-color: rgba(0,0,0, 0.8);
+}
+#number {
+  color: white; 
+  font-size: 0.75em; 
+  position: absolute;
+  top: 5px; 
+  left: 5px; 
+}
+#slide {
+  display: block;
+  max-width: 100%;
+  min-height:230px; 
+  animation-name: fade; 
+  animation-duration: 3s; 
+  -webkit-animation-name: fade; 
+  -webkit-animation-duration: 3s;  
+}
+
+@keyframes fade {
+  from {opacity: 0.5;}
+  to {opacity: 1;}
+}
+@-webkit-keyframes fade {
+  from {opacity: 0.5;}
+  to {opacity: 1;}
+}
+#caption {
+  position: relative;
+  margin-top: -11px;
+  width: 100%;
+  height: 45px;
+  background-color: rgba(0,0,0, 0.8); 
+}
+#caption p {
+  color: white; 
+  font-family: serif;
+  font-variant: small-caps;
+  text-align: center;
+  padding: 9px 0px 0px 0px; 
+  font-size: 0.75em;
+}
+.imgThumbnails {
+  float: left; 
+  width: 16.66%;
+  margin-top: 0px;
+  z-index: 1;
+  opacity: 0.6;
+}
+.imgThumbnails:hover {
+  opacity: 1;
+}
+#login_modal {
+  display: none; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  padding-top: 60px; 
+  z-index: 1;
+  overflow: auto; 
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0);}
+  to {-webkit-transform: scale(1);}
+}
+@keyframes animatezoom {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+#modalform {
+  background-color: rgba(255,255,255, 0.9);
+  width: 80%;
+  margin: 15% auto; 
+  padding: 50px 10px 30px 10px; 
+  border: solid 2px black; 
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  opacity: 0.8%;
+  display: inline-block;
+  color: rgb(10,10,60);
+  padding: 8px 6px;  
+}
+button {
+  width: 100%;
+  background-color: rgb(80,80,80);
+  border: none; 
+  margin: 8px 0;
+  padding: 8px; 
+  color: white;
+  font-size: 0.855em; 
+  cursor: pointer;  
+  margin: 10px 0;
+  font-variant: small-caps;    
+}
+button:hover {
+  opacity: 0.8;
+}
+#cancelbtn {
+  margin-top: 25px;
+  background-color: red;  
+}
+.rmba a{
+  font-weight: lighter; 
+  color: blue;
+  font-size: 0.8em; 
+  font-variant: small-caps;
+  text-decoration: none; 
+  float: right;  
+  cursor: pointer; 
+}
+.rmba a:hover {
+  text-decoration: underline;
+  color: red;  
+}
+.rmba a:active {
+  text-decoration: none; 
+  color: red; 
+}
+#intro_article {
+  width: 75%;
+  float: left; 
+  opacity: 1;
+  letter-spacing: 0.05em; 
+  color: white; 
+  font-size: 1.3em;
+  font-family: serif;
+  overflow: auto;  
+  font-variant: small-caps;
+}
+article h1,h2,h3,h4 {
+  text-align: left;
+  font-weight: bold; 
+}
+.sidelinks {
+  width: 25%;
+  background-color: rgb(226, 226, 226);
+  opacity: 0.6;
+  float: right; 
+  font-family: serif;
+  font-size: 0.8em;
+  color: black;  
+} 
+.sidelinks:hover {
+  opacity: 0.8;
+}
+.sidelinks h1 {
+  margin: 2em 0 0.7em 0.7em;
+  font-size: 1.5em;
+  font-weight: bold; 
+}
+.sidelinks p { 
+  margin: 0.3em 0 0.3em 1em;
+  font-weight: normal; 
+}
+.sidelinks li { 
+  margin: 1em;
+}
+.sidelinks li a {
+  margin-left: -4px;
+  color: black;
+  text-decoration: none; 
+}
+.sidelinks a:hover {
+  cursor: pointer; 
+  text-decoration: underline; 
+  font-weight: bold;
+  font-size: 1.5;
+}
+.posted_comments{
+  max-height: 40em;
+  overflow-y: scroll;
+}
+#comments {
+  width: 100%;
+  position: relative;
+}
+#comments:hover, #comments:active {
+  opacity: 1;
+}
+#comments textarea {
+  width: 100%;
+  min-height: 80px;
+  font-family: serif; 
+}
+#commentbtn {
+  background-color: red;
+  margin: 0 0 0 0;
+}
+#commentbtn:hover {
+  opacity: 1;
+}
+#commentdiv {
+  background-color: white;
+  min-height: 50px;
+  width: 25%;
+  float: right;
+}
+
+/*css unique to register page*/
+/*#reg_form {
+  background-color: rgba(255,255,255, 0.8); 
+  border: solid 2px black; 
+  margin: auto; 
+  padding: 10px;
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+}
+form label {
+  margin: 0.5em 0.5em 0.5em 1em;
+}
+form label input {
+  display: block;
+  margin: 0.5em 0.5em 0.5em 1em;
+}
+.req {
+  display: block;
+}
+.reginput {
+  padding: 4px 3px;
+  width: 100%;
+}
+form section input {
+  margin: 0.5em 0 0.5em 2em;
+}*/
+.regform {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 6% 10% 6% 10%;
+}
+#reg {
+  width: 85%;
+}
+.reglabel {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+  font-variant: small-caps;
+  font-weight: bold;
+  margin-left: 0.1em;
+}
+.reginput {
+  margin-right: 3em;
+  min-width: 40%;
+  min-height: 2.7em;
+}
+.gender {
+  margin-left: -0.1em;
+}
+#regsubmit {
+  background-color: red;
+}
+footer {
+  color: white; 
+  font-variant: small-caps; 
+  font-size: 0.6em; 
+  float: right; 
+  margin-top: 10px; 
+  padding: 4px; 
+}
+/*UserPage css*/
+#chat {
+  opacity: 0.75;
+  background-color: white;
+  float: right;
+  width: 30%;
+  background-color: gray;
+  border: solid 0.05em white;
+  border-radius: 0.5em;
+  height: 20em;
+  max-height: 30em;
+  overflow-y: auto;
+}
+#message {
+  width: 75%;
+  min-height: 4em;
+  overflow-y: visible;
+  border: solid grey 0.1em;
+  border-radius: 0.5em;
+  float: left;
+}
+#chat form button {
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  background-color: rgb(16, 172, 16);
+  margin: 0;
+  padding: 0.747em;
+  border-radius: 0.5em;
+}

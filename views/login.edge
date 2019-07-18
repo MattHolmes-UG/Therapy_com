@@ -1,0 +1,17 @@
+@layout('layouts.app')
+
+@section('content')
+
+<div>
+    <form action="/auth/login" method="POST" class="regform" autocomplete="on">
+        <label class="reglabel"><b>USERNAME:</b></label><br>
+        <input class="reginput" name="username" type="text" placeholder="Enter username" required /><br />
+        <label class="reglabel"><b>PASSWORD:</b></label><br>
+        <input class="reginput" name="password" type="password" placeholder="Enter password" required /><br />
+        <button name="submit" type="Submit">Login</button>
+        <button id="cancelbtn" type="reset">Cancel</button>
+        <span style="color: white;"><input type="checkbox" name="rmba" value="Remember" checked/>Remember me</span>
+        <span class="rmba"><a href="#">Forgot password?</a></span>
+    </form>
+</div>
+@endsection

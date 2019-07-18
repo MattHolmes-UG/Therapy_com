@@ -1,0 +1,86 @@
+@layout('layouts.app')
+
+@section('content')
+
+    @if(auth)
+        <h1 id="username" style="color: white;">Hi {{ username || '' }} </h1>
+    @endif
+<!--Slideshow with toggle buttons and auto move and dots-->
+        <section id="slideshow_container" w>
+            <section class="slides">
+                <aside id="number">1 / 6</aside>
+                <img src="/pics/stone.jpg" alt="slideshow" title="slideshow" id="slide" width="100%" />
+            </section>
+            <!--Next & Prev Buttons-->
+            <span id="prevbtn" onclick="currentSlide(-1)">&#10094;</span>
+            <span id="nextbtn" onclick="currentSlide(1)">&#10095;</span>
+            <!--Caption Text-->
+            <section id="caption">
+                <p>Your life could be in Perfect Balance</p>
+            </section>
+            <!--Image Thumbnails-->
+            <section class="row">
+                <img class="imgThumbnails" onclick="currentSlide(2)" alt="stone.jpg" src="/pics/stone.jpg" />
+                <img class="imgThumbnails" onclick="currentSlide(3)" alt="water.jpg" src="/pics/water.jpg" />
+                <img class="imgThumbnails" onclick="currentSlide(4)" alt="massage.jpg" src="/pics/massage.jpg" />
+                <img class="imgThumbnails" onclick="currentSlide(5)" alt="massage1.jpg" src="/pics/massage1.jpg" />
+                <img class="imgThumbnails" onclick="currentSlide(6)" alt="massage2.jpg" src="/pics/hope.jpg" />
+                <img class="imgThumbnails" onclick="currentSlide(7)" alt="harmony.jpg" src="/pics/harmony.jpg" />
+            </section>
+        </section>
+        <!--Homepage Article-->
+        <section id="intro_article">
+            <article>
+                <h2>Welcome To Therapy.com</h2>
+                <p>
+                    Therapy.com is a free online therapy platform that offers skilled and professional therapy to suit
+                    the needs of the person. Here we do not call people patients cause we believe by virtue of being
+                    here you are already better. If for anything, you identified
+                    that you needed assistance and that in itself is the first step to any solution.<br />
+                    <h4>What is Therapy?</h4>
+                    My flimsy phone dictionary with no name defines it as "Attempted remediation of a health problem
+                    following a diagnosis, usually synonymous with treatment."<br /> I like to think of therapy as
+                    solving ones problems by talking to a skilled
+                    therapist (psychologist), who helps us help ourselves identify the problem and find or suggests a
+                    solution. More often than not, we have the answers, we just need someone to help us first identify
+                    the problem, that is cast the proverbial
+                    light and before we know it, we are far on our way to mental, psychological and even physical
+                    healing.
+                    <br />
+                    <h4>Why Therapy.com?</h4>
+                    <li>It is free</li>
+                    <li>You get the same quality private service</li>
+                    <li>Always accessible regardless of time and place</li>
+                    <li>Customizable to suit your immediate needs</li>
+                    <li>Ease of service</li>
+                    <li>Amongst others</li>
+                    <br />
+                </p>
+            </article>
+        </section>
+        <aside class="sidelinks">
+            <h1>Related Articles</h1>
+            <li><a href="#">Therapy Explained</a></li>
+            <li><a href="#">Types of Therapy</a></li>
+            <li><a href="#">Benefits of Therapy</a></li>
+            <li><a href="#">Why Online Therapy</a></li>
+            <li><a href="#">Benefits of Online Therapy</a></li>
+            <li><a href="#">How to go about seeking therapy</a></li>
+            
+            <h1>Posted Comments</h1>
+            @each(post in posts)
+                <div class='posted_comment' style='margin-top: 1.5em;'>
+                        <p> Comment by {{ username }} :</p> 
+                        <p> {{ post.content }} </p> 
+                        <p style="font-size: 0.8em;"> posted on {{ post.createdAt.toDateString() }} </p> 
+                </div>
+            @endeach
+            <aside id="comments">
+                <form action="/comment" method="POST">
+                    <textarea type="text" placeholder=" Comments" name="content"></textarea>
+                    <button id="commentbtn" type="Submit">Submit</button>
+                </form>
+            </aside>
+        </aside>
+
+@endsection
