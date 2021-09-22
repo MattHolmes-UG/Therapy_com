@@ -19,7 +19,7 @@
     "bootstrap": "^4.3.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.3",
-    "edge.js": "^1.1.4",
+    "edge.js": "^5.3.2",
     "edje": "^2.4.0",
     "express": "^4.16.4",
     "express-edge": "^1.0.0",
